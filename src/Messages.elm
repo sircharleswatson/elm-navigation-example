@@ -1,6 +1,6 @@
 module Messages exposing (..)
 
 type Msg
-  = ListUsers
-  | SelectUser Int
+  = ListCats
+  | SelectCat Int
   | Go String

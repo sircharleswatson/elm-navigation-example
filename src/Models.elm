@@ -2,12 +2,12 @@ module Models exposing (..)
 
 import Router.Models exposing (Page(..))
 
-{-| In this example we have two different pages, one for user list and one for
-  selected user's profile.
+{-| In this example we have two different pages, one for cat list and one for
+  selected cat's profile.
 -}
 
 
-type alias User =
+type alias Cat =
   { id : Int
   , name : String
   , profilePicture : String
@@ -15,22 +15,22 @@ type alias User =
 
 
 type alias Model =
-  { userList : List User
+  { catList : List Cat
   , currentPage : Page
-  , selectedUserId : Int
+  , selectedCatId : Int
   }
 
 
-emptyUser : User
-emptyUser =
+emptyCat : Cat
+emptyCat =
   { id = 0
   , name = ""
   , profilePicture = ""
   }
 
 
-users : List User
-users =
+cats : List Cat
+cats =
   [ { id = 0
     , name = "John"
     , profilePicture = "http://placekitten.com/400/400"
@@ -44,7 +44,7 @@ users =
 
 initialModel : Model
 initialModel =
-  { userList = users
-  , currentPage = UserListPage
-  , selectedUserId = 0
+  { catList = cats
+  , currentPage = Home
+  , selectedCatId = 0
   }

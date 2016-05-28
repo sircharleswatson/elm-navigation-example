@@ -1,23 +1,36 @@
 module Router.Parser exposing (..)
 
 import Navigation
+import Router.Models exposing (Page(..))
 import String
+import UrlParser exposing (Parser, (</>), format, int, oneOf, s, string)
+
 
 -- URL PARSERS - check out evancz/url-parser for fancier URL parsing
 
-fromUrl : String -> Maybe Int
-fromUrl url =
-  let
-    _ = Debug.log "(fromUrl) path: " (url)
-  in
-    (String.dropLeft 1 url)
-      |> String.toInt
-      |> Result.toMaybe
+toPath : Page -> String
+toPath page =
+  case page of
+    Home ->
+      "/"
+
+    Cat id ->
+      "/cat/" ++ toString id
 
 
-urlParser : Navigation.Parser (Maybe Int)
+urlParser : Navigation.Parser (Result String Page)
 urlParser =
-  let
-    _ = Debug.log "(urlParser)" 1
-  in
-    Navigation.makeParser (fromUrl << .pathname)
+  Navigation.makeParser pathParser
+
+
+pathParser : Navigation.Location -> Result String Page
+pathParser location =
+  UrlParser.parse identity pageParser (String.dropLeft 1 location.pathname)
+
+
+pageParser : Parser (Page -> a) a
+pageParser =
+  oneOf
+    [ format Home (s "")
+    , format Cat (s "cat" </> int)
+    ]

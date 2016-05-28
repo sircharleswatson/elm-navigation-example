@@ -7,19 +7,20 @@ import Json.Decode as Json exposing ((:=))
 import Messages exposing (..)
 import Models exposing (..)
 import Router.Models exposing (Page(..))
+import Router.Parser exposing (toPath)
 
 
-userCard : User -> Html Msg
-userCard user =
+catCard : Cat -> Html Msg
+catCard cat =
   li
     [ style
         [ ( "margin-bottom", "0.5rem" )
         , ( "cursor", "pointer" )
         , ( "text-decoration", "underline" )
         ]
-    , onClick (SelectUser user.id)
+    , onClick (SelectCat cat.id)
     ]
-    [ text user.name ]
+    [ text cat.name ]
 
 
 {-| The whole view is modeled after current page. Both pages have an unique structure. If we
@@ -28,30 +29,30 @@ userCard user =
 pageView : Model -> Html Msg
 pageView model =
   case model.currentPage of
-    UserListPage ->
+    Home ->
       div []
-        [ h1 [] [ text "Users" ]
+        [ h1 [] [ text "Cats" ]
         , ul []
-            (List.map userCard model.userList)
+            (List.map catCard model.catList)
         ]
 
-    ProfilePage ->
+    Cat id ->
       let
-        user =
-          model.userList
-            |> List.filter (\user -> user.id == model.selectedUserId)
+        cat =
+          model.catList
+            |> List.filter (\cat -> cat.id == model.selectedCatId)
             |> List.head
-            |> Maybe.withDefault emptyUser
+            |> Maybe.withDefault emptyCat
       in
         div []
           [ h1 [] [ text "Profile" ]
           , div []
               [ h2 []
-                  [ text user.name ]
-              , img [ src user.profilePicture ]
+                  [ text cat.name ]
+              , img [ src cat.profilePicture ]
                   []
               ]
-          , a (clickTo "/") [ text "Back to user list" ]
+          , a (clickTo (toPath Home)) [ text "Back to cat list" ]
           ]
 
 

@@ -26,9 +26,9 @@ main =
     }
 
 
-init : Maybe Int -> ( Model, Cmd Msg )
-init userId =
+init : Result String Page -> ( Model, Cmd Msg )
+init result =
   let
-    _ = Debug.log "(init) " (userId)
+    _ = Debug.log "result: " result
   in
-    urlUpdate userId initialModel
+    urlUpdate result initialModel

@@ -2,5 +2,5 @@ module Router.Models exposing (..)
 
 
 type Page
-  = UserListPage
-  | ProfilePage
+  = Home
+  | Cat Int
