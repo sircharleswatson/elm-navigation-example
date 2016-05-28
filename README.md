@@ -1,29 +1,10 @@
-#DJ Funtime
+#elm-navigation-example
 
-##Getting Started
-In order to start the server you just need to run two commands:
+to start the app run:
 ```
 npm install
 npm start
 ```
-This includes compiling the Elm code and starting a local server to run it.
+This example uses pathname parsing instead of hash parsing because I really don't like having hashes in my URLs.
 
-## Contributing
-We're following the "Read-only Master Branch" philosophy. Therefore, in order to make changes, please fork the project and create a new branch for the issue you'd like to tackle then make a pull request to get it reviewed when you're ready.
-
-**please use the following format for naming your branch:**
-```
-<username or initials>-issue-23
-```
-
-In order to make things easier for everyone, try to keep the following things in mind:
-- Keep commits cohesive
-- Keep commits as small as possible
-- Commits should contains no more than one logical change. If it contains more, the commit should be split.
-
-**Please write good commit messages!**
-
-A good commit message answers three questions:
-- Why is this change necessary?
-- How does it address the issue?
-- What effects does the patch have?
+If it doesn't work properly for any reason, let me know and feel free to make a pull request for any improvements you can think of, preferably in the direction of simplicity.
