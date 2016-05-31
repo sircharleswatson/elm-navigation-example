@@ -3,8 +3,8 @@ module Update exposing (..)
 import Models exposing (Model, initialModel)
 import Messages exposing (Msg(..))
 import Navigation
-import Router.Models exposing (Page(..))
-import Router.Parser exposing (toPath)
+import Nav.Models exposing (Page(..))
+import Nav.Parser exposing (toPath)
 
 
 {-| The update function either resets the model (no cat is selected) or retains current model

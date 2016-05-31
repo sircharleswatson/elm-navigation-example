@@ -6,8 +6,8 @@ import Html.Events exposing (..)
 import Json.Decode as Json exposing ((:=))
 import Messages exposing (..)
 import Models exposing (..)
-import Router.Models exposing (Page(..))
-import Router.Parser exposing (toPath)
+import Nav.Models exposing (Page(..))
+import Nav.Parser exposing (toPath)
 
 
 catCard : Cat -> Html Msg

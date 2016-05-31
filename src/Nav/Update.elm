@@ -1,10 +1,10 @@
-module Router.Update exposing (..)
+module Nav.Update exposing (..)
 
 import Messages exposing (Msg(..))
 import Models exposing (..)
 import Navigation
-import Router.Models exposing (Page(..))
-import Router.Parser exposing (..)
+import Nav.Models exposing (Page(..))
+import Nav.Parser exposing (..)
 
 {-| The url is modeled as maybe to separate profile url from index url. Displayed page is
   updated based on whether the url contains cat id or not.

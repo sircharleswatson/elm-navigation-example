@@ -1,6 +1,6 @@
 module Models exposing (..)
 
-import Router.Models exposing (Page(..))
+import Nav.Models exposing (Page(..))
 
 {-| In this example we have two different pages, one for cat list and one for
   selected cat's profile.

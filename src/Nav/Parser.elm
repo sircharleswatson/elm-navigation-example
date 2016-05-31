@@ -1,7 +1,7 @@
-module Router.Parser exposing (..)
+module Nav.Parser exposing (..)
 
 import Navigation
-import Router.Models exposing (Page(..))
+import Nav.Models exposing (Page(..))
 import String
 import UrlParser exposing (Parser, (</>), format, int, oneOf, s, string)
 
